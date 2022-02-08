@@ -23,7 +23,7 @@ def pomodoro(n):
       print(f'{elipse}...')
       time.sleep(.1)
   print('Times up')
-  subprocess.Popen(['start', 'alarm.wav'], shell=True)
+  #subprocess.Popen(['start', 'alarm.wav'], shell=True)
   pomNum = pomNum + 1
   return(pomNum)
 
@@ -43,5 +43,6 @@ while True:
     lnbreakcalc = datetime.datetime.fromtimestamp(time.time() + lnbreakmin*60)
     print(f"Break until {lnbreakcalc.strftime('%H:%M')}.")
     time.sleep(lnbreakmin*60)
+    #subprocess.Popen(['start', 'alarm.wav'], shell=True)
     print(f'Break over! {activeTask} is the task.  Press enter to start pomodoro timer')
     input()
