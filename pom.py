@@ -27,7 +27,7 @@ def pomodoro(n):
   pomNum = pomNum + 1
   return(pomNum)
 
-def main():
+def pomactive():
     for i in range(4):
         count = pomodoro(i)
         print(f'You\'ve done {count} poms')
@@ -38,7 +38,7 @@ def main():
     return()
 
 while True:
-    main()
+    pomactive()
     lnbreakmin = int(input('Long break time! How long? [15]min > ') or "15")
     lnbreakcalc = datetime.datetime.fromtimestamp(time.time() + lnbreakmin*60)
     print(f"Break until {lnbreakcalc.strftime('%H:%M')}.")
