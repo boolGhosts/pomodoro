@@ -5,8 +5,8 @@ import time, datetime, subprocess
 
 # Display user instructions
 activeTask = input('Enter name of task> ')
-pomDur = 25
-pomDur = int(input('Enter task time [25] min > ') or "25")
+pomInput = int(input('Enter task time [25] min > ') or "25")
+pomDur = pomInput*60
 print(f'{activeTask} is the task.  Press enter to start pomodoro timer')
 input()
 print('Started')
@@ -20,10 +20,11 @@ def pomodoro(n):
     pomTime = round(time.time() - startTime, 2)
     if (pomTime > 0 and pomTime % 5 == 0.00):
       elipse = elipse + 5
-      print(f'{elipse}...')
-      time.sleep(.1)
+      #print(f'{elipse/60}...')
+      print('...')
+      time.sleep(59)
   print('Times up')
-  #subprocess.Popen(['start', 'alarm.wav'], shell=True)
+  subprocess.Popen(['start', './pomodoro/alarm.wav'], shell=True)
   pomNum = pomNum + 1
   return(pomNum)
 
@@ -43,6 +44,6 @@ while True:
     lnbreakcalc = datetime.datetime.fromtimestamp(time.time() + lnbreakmin*60)
     print(f"Break until {lnbreakcalc.strftime('%H:%M')}.")
     time.sleep(lnbreakmin*60)
-    #subprocess.Popen(['start', 'alarm.wav'], shell=True)
+    subprocess.Popen(['start', './pomodoro/alarm.wav'], shell=True)
     print(f'Break over! {activeTask} is the task.  Press enter to start pomodoro timer')
     input()
