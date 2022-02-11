@@ -36,14 +36,12 @@ def pomodoro(n):
   pomNum = n
   elipse = 0
   startTime = time.time()
-  pomTime = round(time.time() - startTime, 2)
-  while round(pomTime <= pomDur):
-    pomTime = round(time.time() - startTime, 2)
-    if (pomTime > 0 and pomTime % 5 == 0.00):
-      elipse = elipse + 5
-      #print(f'{elipse/60}...')
-      print('...')
-      time.sleep(59)
+  pomTime = int(time.time() - startTime)
+  while int(pomTime <= pomDur):
+    pomTime = int(time.time() - startTime)
+    if (pomTime > 0 and pomTime % 5 == 0):
+      print(f'...{int(pomTime)}...')
+    time.sleep(1)
   print('Times up')
   subprocess.Popen(['start', './pomodoro/alarm.wav'], shell=True)
   pomNum = pomNum + 1
